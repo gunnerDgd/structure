@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\details">
+      <UniqueIdentifier>{4813f8cc-26cd-454a-8eb3-a8254e22cd92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\details\list">
+      <UniqueIdentifier>{0807a5ca-bae9-4b83-95b6-ea761edf1c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\details\list\single_linked">
+      <UniqueIdentifier>{4db602ca-69cb-4221-a42b-08c988af513c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\details\list\double_linked">
+      <UniqueIdentifier>{7a84cc54-497e-4e33-83a3-b1de4ac1ea20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\c">
+      <UniqueIdentifier>{82a7a3d4-8701-4a3b-8620-054f9fa70820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\c\details">
+      <UniqueIdentifier>{0e614a5a-22f6-461f-b857-b42baad0d4d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\c\details\list">
+      <UniqueIdentifier>{0654ef4e-6888-4ed2-a55c-d2923f3d04cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\list">
+      <UniqueIdentifier>{ce649539-7690-47dd-b850-fa4de9a2878f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\c\list">
+      <UniqueIdentifier>{f240c694-0c17-436b-9221-cfac0978521a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_types.h">
+      <Filter>Header Files\details\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_mman.h">
+      <Filter>Header Files\details\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_init.h">
+      <Filter>Header Files\details\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_manip.h">
+      <Filter>Header Files\details\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked.h">
+      <Filter>Header Files\list</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\source\c\details\list\slist_init.c">
+      <Filter>Source Files\c\details\list</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\details\list\slist_manip.c">
+      <Filter>Source Files\c\details\list</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\details\list\slist_mman.c">
+      <Filter>Source Files\c\details\list</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\list\slist.c">
+      <Filter>Source Files\c\list</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
