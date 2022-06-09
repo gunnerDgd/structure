@@ -19,17 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\include\structure\details\list\double_linked\dlist_init.h" />
+    <ClInclude Include="..\..\..\..\include\structure\details\list\double_linked\dlist_manip.h" />
+    <ClInclude Include="..\..\..\..\include\structure\details\list\double_linked\dlist_types.h" />
     <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_init.h" />
     <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_manip.h" />
-    <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_mman.h" />
     <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_types.h" />
+    <ClInclude Include="..\..\..\..\include\structure\details\mman\default\mman_default.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked_init.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked_manip.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked_node.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked_type.h" />
     <ClInclude Include="..\..\..\..\include\structure\list\single_linked.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked_init.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked_manip.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked_node.h" />
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked_type.h" />
+    <ClInclude Include="..\..\..\..\include\structure\mman\mman.h" />
+    <ClInclude Include="..\..\..\..\include\structure\mman\mman_default.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\source\c\details\list\dlist_init.c" />
+    <ClCompile Include="..\..\..\..\source\c\details\list\dlist_manip.c" />
     <ClCompile Include="..\..\..\..\source\c\details\list\slist_init.c" />
     <ClCompile Include="..\..\..\..\source\c\details\list\slist_manip.c" />
-    <ClCompile Include="..\..\..\..\source\c\details\list\slist_mman.c" />
+    <ClCompile Include="..\..\..\..\source\c\details\mman\mman_default.c" />
+    <ClCompile Include="..\..\..\..\source\c\list\dlist.c" />
     <ClCompile Include="..\..\..\..\source\c\list\slist.c" />
+    <ClCompile Include="..\..\..\..\source\c\mman\default.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

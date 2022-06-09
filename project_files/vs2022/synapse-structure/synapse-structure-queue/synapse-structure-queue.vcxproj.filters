@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\linear">
+      <UniqueIdentifier>{1735f4bc-56cf-4717-ae2c-3fe005a6cf1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\linear\details">
+      <UniqueIdentifier>{379dbceb-ec9f-45ee-816c-f4fd922aedda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\details">
+      <UniqueIdentifier>{90d330ba-0956-44eb-bf80-5d0eefaf1b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\details\linear">
+      <UniqueIdentifier>{dcd802a9-0331-46f1-9070-af45ffed55b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\details\circular">
+      <UniqueIdentifier>{a18fdb7e-36c4-4c3d-823d-88e7f64b14d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\circular">
+      <UniqueIdentifier>{ea48f991-c9cd-4468-b69e-e9d6c9a8ac75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\circular\details">
+      <UniqueIdentifier>{5043c5ad-128a-4714-8972-b036c9db737d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\linear">
+      <UniqueIdentifier>{c4d51b53-6ed3-4562-8cb3-cba2453a19b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\circular">
+      <UniqueIdentifier>{4c17e277-a527-4e66-a112-dc8682215ae7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\include\structure\details\queue\linear\lqueue_init.h">
+      <Filter>Header Files\linear\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\queue\linear\lqueue_types.h">
+      <Filter>Header Files\linear\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\queue\linear\lqueue_manip.h">
+      <Filter>Header Files\linear\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\queue\circular\cqueue_init.h">
+      <Filter>Header Files\circular\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\queue\circular\cqueue_manip.h">
+      <Filter>Header Files\circular\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\queue\circular\cqueue_types.h">
+      <Filter>Header Files\circular\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue_init.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue_type.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue_manip.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue_node.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\source\c\details\queue\linear\lqueue_init.c">
+      <Filter>Source Files\details\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\details\queue\linear\lqueue_manip.c">
+      <Filter>Source Files\details\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\details\queue\circular\cqueue_init.c">
+      <Filter>Source Files\details\circular</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\details\queue\circular\cqueue_manip.c">
+      <Filter>Source Files\details\circular</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\linear\linear_queue_init.c">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\linear\linear_queue_manip.c">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\linear\linear_queue_node.c">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

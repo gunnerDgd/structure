@@ -1,4 +1,2 @@
-﻿  slist.c
-E:\Programming\C++\Projects\Experimental\synapse-structure\source\c\list\slist.c(10,60): warning C4133: 'function': incompatible types - from 'synapse_structure_single_linked_mman *' to '__synapse_structure_slist_mman *'
-E:\Programming\C++\Projects\Experimental\synapse-structure\source\c\list\slist.c(29,65): warning C4133: 'function': incompatible types - from 'synapse_structure_single_linked_mman *' to '__synapse_structure_slist_mman *'
+﻿  dlist.c
   synapse-structure-list.vcxproj -> E:\Programming\C++\Projects\Experimental\synapse-structure\libs\x64\debug\synapse-structure-list.lib

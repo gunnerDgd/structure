@@ -1,5 +1,5 @@
 #pragma once
-#include <structure/details/list/single_linked/slist_mman.h>
+#include <structure/mman/mman.h>
 
 typedef struct __synapse_structure_slist_node
 {
@@ -18,5 +18,5 @@ typedef struct __synapse_structure_slist_head
 	__synapse_structure_slist_node* entry,
 								  * front,
 								  * back ;
-	__synapse_structure_slist_mman  mman ;
+	synapse_structure_mman			mman ;
 } __synapse_structure_slist_head;

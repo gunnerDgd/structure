@@ -3,8 +3,10 @@
 #include <structure/details/list/single_linked/slist_init.h>
 #include <structure/details/list/single_linked/slist_manip.h>
 
+#include <structure/mman/mman_default.h>
+
 synapse_structure_single_linked
-synapse_structure_single_linked_initialize(synapse_structure_single_linked_mman pMman)
+synapse_structure_single_linked_initialize(synapse_structure_mman pMman)
 {
 	synapse_structure_single_linked val_slist
 		= { .opaque = __synapse_structure_slist_initialize(&pMman) };
@@ -15,18 +17,11 @@ synapse_structure_single_linked_initialize(synapse_structure_single_linked_mman 
 synapse_structure_single_linked
 synapse_structure_single_linked_initialize_default()
 {
-	synapse_structure_single_linked_mman mman_empty
-		= {
-			.allocate   = 0,
-			.deallocate = 0,
-			.resize		= 0,
-
-			.copy_from  = 0,
-			.copy_to    = 0
-		  };
+	synapse_structure_mman mman_default
+		= synapse_structure_mman_default_initialize();
 
 	synapse_structure_single_linked val_slist
-		= { .opaque = __synapse_structure_slist_initialize(&mman_empty) };
+		= { .opaque = __synapse_structure_slist_initialize(&mman_default) };
 
 	return val_slist;
 }
@@ -104,4 +99,30 @@ synapse_structure_single_linked_retrieve_at(synapse_structure_single_linked pSli
 		= { .opaque = __synapse_structure_slist_retrive_at(pSlist.opaque, pIndex) };
 
 	return val_node;
+}
+
+void* synapse_structure_single_linked_node_data(synapse_structure_single_linked_node pNode)
+{
+	__synapse_structure_slist_node* ptr_node
+		= pNode.opaque;
+
+	return ptr_node->data_ptr;
+}
+
+size_t synapse_structure_single_linked_node_size(synapse_structure_single_linked_node pNode)
+{
+	__synapse_structure_slist_node* ptr_node
+		= pNode.opaque;
+
+	return ptr_node->data_size;
+}
+
+synapse_structure_single_linked_node
+synapse_structure_single_linked_node_next(synapse_structure_single_linked_node pNode)
+{
+	synapse_structure_single_linked_node ptr_next =
+	{ .opaque = (pNode.opaque) ? ((__synapse_structure_slist_node*)pNode.opaque)->next 
+							   : NULL };
+
+	return ptr_next;
 }

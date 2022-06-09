@@ -40,12 +40,30 @@
     <Filter Include="Source Files\c\list">
       <UniqueIdentifier>{f240c694-0c17-436b-9221-cfac0978521a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\mman">
+      <UniqueIdentifier>{09106915-96e2-4104-ba63-1311ef5cb429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\details\mman">
+      <UniqueIdentifier>{843edb51-3326-4364-829a-e03fb2c7a9cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\details\mman\default">
+      <UniqueIdentifier>{c241f078-f4db-4d2a-8a13-8b0e41b046d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\c\details\mman">
+      <UniqueIdentifier>{2840162e-15d1-464c-965f-b6ea4b6fbdf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\c\mman">
+      <UniqueIdentifier>{9f6ecba9-9e01-4947-b884-f849fb2d9758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\list\single_linked">
+      <UniqueIdentifier>{3026aea5-25a5-4d43-93a4-1e0caa115fda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\list\double_linked">
+      <UniqueIdentifier>{d3330af9-0e94-41cf-9529-8c7029914c87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_types.h">
-      <Filter>Header Files\details\list\single_linked</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_mman.h">
       <Filter>Header Files\details\list\single_linked</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_init.h">
@@ -54,8 +72,53 @@
     <ClInclude Include="..\..\..\..\include\structure\details\list\single_linked\slist_manip.h">
       <Filter>Header Files\details\list\single_linked</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\mman\mman.h">
+      <Filter>Header Files\mman</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\mman\default\mman_default.h">
+      <Filter>Header Files\details\mman\default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\mman\mman_default.h">
+      <Filter>Header Files\mman</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\list\double_linked\dlist_types.h">
+      <Filter>Header Files\details\list\double_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\list\double_linked\dlist_init.h">
+      <Filter>Header Files\details\list\double_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\details\list\double_linked\dlist_manip.h">
+      <Filter>Header Files\details\list\double_linked</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\include\structure\list\single_linked.h">
-      <Filter>Header Files\list</Filter>
+      <Filter>Header Files\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked_init.h">
+      <Filter>Header Files\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked_manip.h">
+      <Filter>Header Files\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked_node.h">
+      <Filter>Header Files\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\single_linked_type.h">
+      <Filter>Header Files\list\single_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked_init.h">
+      <Filter>Header Files\list\double_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked_type.h">
+      <Filter>Header Files\list\double_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked_manip.h">
+      <Filter>Header Files\list\double_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked.h">
+      <Filter>Header Files\list\double_linked</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\list\double_linked_node.h">
+      <Filter>Header Files\list\double_linked</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,10 +128,22 @@
     <ClCompile Include="..\..\..\..\source\c\details\list\slist_manip.c">
       <Filter>Source Files\c\details\list</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\source\c\details\list\slist_mman.c">
+    <ClCompile Include="..\..\..\..\source\c\list\slist.c">
+      <Filter>Source Files\c\list</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\details\mman\mman_default.c">
+      <Filter>Source Files\c\details\mman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\mman\default.c">
+      <Filter>Source Files\c\mman</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\details\list\dlist_init.c">
       <Filter>Source Files\c\details\list</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\source\c\list\slist.c">
+    <ClCompile Include="..\..\..\..\source\c\details\list\dlist_manip.c">
+      <Filter>Source Files\c\details\list</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\list\dlist.c">
       <Filter>Source Files\c\list</Filter>
     </ClCompile>
   </ItemGroup>

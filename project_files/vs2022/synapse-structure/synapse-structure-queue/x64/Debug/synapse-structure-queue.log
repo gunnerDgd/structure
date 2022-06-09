@@ -1,0 +1,5 @@
+﻿  lqueue_init.c
+E:\Programming\C++\Projects\Experimental\synapse-structure\source\c\details\queue\linear\lqueue_init.c(33,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  lqueue_manip.c
+E:\Programming\C++\Projects\Experimental\synapse-structure\source\c\details\queue\linear\lqueue_manip.c(63,1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Generating Code...

@@ -14,3 +14,4 @@ void							__synapse_structure_slist_erase_at    (__synapse_structure_slist_head
 
 __synapse_structure_slist_node* 
 __synapse_structure_slist_retrive_at(__synapse_structure_slist_head*, size_t);
+

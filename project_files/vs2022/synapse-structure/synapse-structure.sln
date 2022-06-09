@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "synapse-structure-list", "synapse-structure-list\synapse-structure-list.vcxproj", "{8D958E00-9B9E-41C5-A97B-DCDE28BE360B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "synapse-structure-queue", "synapse-structure-queue\synapse-structure-queue.vcxproj", "{E5B73E53-683C-43C8-8BD3-61144A049874}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{8D958E00-9B9E-41C5-A97B-DCDE28BE360B}.Release|x64.Build.0 = Release|x64
 		{8D958E00-9B9E-41C5-A97B-DCDE28BE360B}.Release|x86.ActiveCfg = Release|Win32
 		{8D958E00-9B9E-41C5-A97B-DCDE28BE360B}.Release|x86.Build.0 = Release|Win32
+		{E5B73E53-683C-43C8-8BD3-61144A049874}.Debug|x64.ActiveCfg = Debug|x64
+		{E5B73E53-683C-43C8-8BD3-61144A049874}.Debug|x64.Build.0 = Debug|x64
+		{E5B73E53-683C-43C8-8BD3-61144A049874}.Debug|x86.ActiveCfg = Debug|Win32
+		{E5B73E53-683C-43C8-8BD3-61144A049874}.Debug|x86.Build.0 = Debug|Win32
+		{E5B73E53-683C-43C8-8BD3-61144A049874}.Release|x64.ActiveCfg = Release|x64
+		{E5B73E53-683C-43C8-8BD3-61144A049874}.Release|x64.Build.0 = Release|x64
+		{E5B73E53-683C-43C8-8BD3-61144A049874}.Release|x86.ActiveCfg = Release|Win32
+		{E5B73E53-683C-43C8-8BD3-61144A049874}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
