@@ -2,7 +2,10 @@
 #include <structure/queue/linear/linear_queue_type.h>
 
 synapse_structure_linear_queue
-synapse_structure_linear_queue_initialize();
+synapse_structure_linear_queue_initialize(synapse_structure_mman);
+
+synapse_structure_linear_queue
+synapse_structure_linear_queue_initialize_default();
 
 void
 synapse_structure_linear_queue_cleanup   (synapse_structure_linear_queue);

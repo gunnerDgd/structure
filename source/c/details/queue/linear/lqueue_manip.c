@@ -7,10 +7,12 @@ void
 __synapse_structure_lqueue_push_back(__synapse_structure_lqueue_head* pHead, void* pData, size_t pDataSize)
 {
 	__synapse_structure_lqueue_node* ptr_node
-		= malloc(sizeof(__synapse_structure_lqueue_node));
+		= synapse_structure_mman_allocate(pHead->mman, NULL, sizeof(__synapse_structure_lqueue_node));
 
-	ptr_node->ptr_entity  = malloc(pDataSize);
-	ptr_node->size_entity = pDataSize;
+	ptr_node->ptr_entity  
+		= synapse_structure_mman_allocate(pHead->mman, NULL, pDataSize);
+	ptr_node->size_entity 
+		= pDataSize;
 
 	memcpy(ptr_node->ptr_entity, pData, pDataSize);
 
@@ -26,10 +28,12 @@ void
 __synapse_structure_lqueue_push_front(__synapse_structure_lqueue_head* pHead, void* pData, size_t pDataSize)
 {
 	__synapse_structure_lqueue_node* ptr_node
-		= malloc(sizeof(__synapse_structure_lqueue_node));
+		= synapse_structure_mman_allocate(pHead->mman, NULL, sizeof(__synapse_structure_lqueue_node));
 
-	ptr_node->ptr_entity  = malloc(pDataSize);
-	ptr_node->size_entity = pDataSize;
+	ptr_node->ptr_entity  
+		= synapse_structure_mman_allocate(pHead->mman, NULL, pDataSize);
+	ptr_node->size_entity 
+		= pDataSize;
 
 	memcpy(ptr_node->ptr_entity, pData, pDataSize);
 
@@ -78,8 +82,8 @@ __synapse_structure_lqueue_pop_back(__synapse_structure_lqueue_head* pHead)
 	if (!ptr_backmost) return;
 	pHead->backmost = ptr_backmost->prev;
 	
-	free(ptr_backmost->ptr_entity);
-	free(ptr_backmost);
+	synapse_structure_mman_deallocate(pHead->mman, ptr_backmost->ptr_entity, ptr_backmost->size_entity);
+	synapse_structure_mman_deallocate(pHead->mman, ptr_backmost			   , sizeof(__synapse_structure_lqueue_node));
 }
 
 void
@@ -91,6 +95,6 @@ __synapse_structure_lqueue_pop_front(__synapse_structure_lqueue_head* pHead)
 	if (!ptr_frontmost) return;
 	pHead->frontmost = ptr_frontmost->next;
 	
-	free(ptr_frontmost->ptr_entity);
-	free(ptr_frontmost);
+	synapse_structure_mman_deallocate(pHead->mman, ptr_frontmost->ptr_entity, ptr_frontmost->size_entity);
+	synapse_structure_mman_deallocate(pHead->mman, ptr_frontmost			, sizeof(__synapse_structure_lqueue_node));
 }

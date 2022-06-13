@@ -3,11 +3,12 @@
 #include <stdlib.h>
 
 __synapse_structure_lqueue_head*
-__synapse_structure_lqueue_initialize()
+__synapse_structure_lqueue_initialize(synapse_structure_mman pMman)
 {
 	__synapse_structure_lqueue_head* ptr_head
 		= malloc(sizeof(__synapse_structure_lqueue_head));
-
+	
+	ptr_head->mman	    = pMman;
 	ptr_head->frontmost = NULL;
 	ptr_head->backmost  = NULL;
 	ptr_head->count		= 0   ;
