@@ -1,0 +1,14 @@
+#pragma once
+#include <structure/queue/circular/circular_queue_types.h>
+
+void
+synapse_structure_circular_queue_read_from(synapse_structure_circular_queue, void*, size_t);
+
+void
+synapse_structure_circular_queue_write_to (synapse_structure_circular_queue, void*, size_t);
+
+synapse_structure_circular_queue_node
+synapse_structure_circular_queue_read_pointer (synapse_structure_circular_queue);
+
+synapse_structure_circular_queue_node
+synapse_structure_circular_queue_write_pointer(synapse_structure_circular_queue);

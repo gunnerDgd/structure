@@ -72,6 +72,18 @@
     <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue_node.h">
       <Filter>Header Files\linear</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\circular\circular_queue_types.h">
+      <Filter>Header Files\circular</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\circular\circular_queue_init.h">
+      <Filter>Header Files\circular</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\circular\circular_queue_manip.h">
+      <Filter>Header Files\circular</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\circular\circular_queue_node.h">
+      <Filter>Header Files\circular</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\source\c\details\queue\linear\lqueue_init.c">
@@ -94,6 +106,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\source\c\queue\linear\linear_queue_node.c">
       <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\circular\circular_queue_init.c">
+      <Filter>Source Files\circular</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\circular\circular_queue_manip.c">
+      <Filter>Source Files\circular</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\circular\circular_queue_node.c">
+      <Filter>Source Files\circular</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

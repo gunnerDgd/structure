@@ -36,9 +36,10 @@ __synapse_structure_dlist_insert_back(__synapse_structure_dlist_head* pHead, voi
 	memcpy				(ptr_node->node_ptr, pData, pDataSize);
 	InterlockedIncrement(&pHead->node_count);
 
-					   pHead->backmost = ptr_node;
-	if (!pHead->entry) pHead->entry    = ptr_node;
-	return							     ptr_node;
+	if(pHead->backmost) pHead->backmost->next = ptr_node;
+					    pHead->backmost		  = ptr_node;
+	if (!pHead->entry)  pHead->entry		  = ptr_node;
+	return									    ptr_node;
 }
 
 __synapse_structure_dlist_node*
@@ -49,9 +50,11 @@ __synapse_structure_dlist_insert_at(__synapse_structure_dlist_head* pHead, void*
 								  * ptr_node;
 
 	if (!ptr_seek)
-		return __synapse_structure_dlist_insert_back(pHead, pData, pDataSize); 
+		return __synapse_structure_dlist_insert_back (pHead, pData, pDataSize);
 	
 	ptr_node
+		= synapse_structure_mman_allocate(pHead->mman, NULL, sizeof(__synapse_structure_dlist_node));
+	ptr_node->node_ptr
 		= synapse_structure_mman_allocate(pHead->mman, NULL, pDataSize);
 	
 	ptr_node->next = ptr_seek->next;

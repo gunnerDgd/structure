@@ -36,6 +36,28 @@ __synapse_structure_lqueue_node*
 __synapse_structure_lqueue_retrieve_back (__synapse_structure_lqueue_head* pHead) { return pHead->backmost ; }
 
 void
+__synapse_structure_lqueue_push_back_node(__synapse_structure_lqueue_head* pHead, __synapse_structure_lqueue_node* pNode)
+{
+	if (pNode->prev) pNode->prev->next = pNode->next;
+	if (pNode->next) pNode->next->prev = pNode->prev;
+
+	pHead->backmost->next = pNode;
+	pNode->prev		      = pHead->backmost;
+	pHead->backmost       = pNode;
+}
+
+void
+__synapse_structure_lqueue_push_front_node(__synapse_structure_lqueue_head* pHead, __synapse_structure_lqueue_node* pNode)
+{
+	if (pNode->prev) pNode->prev->next = pNode->next;
+	if (pNode->next) pNode->next->prev = pNode->prev;
+
+	pHead->frontmost->prev = pNode;
+	pNode->next			   = pHead->frontmost;
+	pHead->frontmost	   = pNode;
+}
+
+void
 __synapse_structure_lqueue_pop_back(__synapse_structure_lqueue_head* pHead)
 {
 	__synapse_structure_lqueue_node* ptr_backmost
