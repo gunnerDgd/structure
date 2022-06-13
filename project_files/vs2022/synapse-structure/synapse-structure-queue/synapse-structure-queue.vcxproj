@@ -29,6 +29,7 @@
     <ClInclude Include="..\..\..\..\include\structure\queue\circular\circular_queue_manip.h" />
     <ClInclude Include="..\..\..\..\include\structure\queue\circular\circular_queue_node.h" />
     <ClInclude Include="..\..\..\..\include\structure\queue\circular\circular_queue_types.h" />
+    <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue.h" />
     <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue_init.h" />
     <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue_manip.h" />
     <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue_node.h" />

@@ -84,6 +84,9 @@
     <ClInclude Include="..\..\..\..\include\structure\queue\circular\circular_queue_node.h">
       <Filter>Header Files\circular</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\linear\linear_queue.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\source\c\details\queue\linear\lqueue_init.c">

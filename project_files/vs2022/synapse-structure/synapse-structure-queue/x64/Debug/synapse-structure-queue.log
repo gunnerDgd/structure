@@ -1,12 +1,2 @@
-﻿  cqueue_init.c
-  cqueue_manip.c
-  lqueue_init.c
-  lqueue_manip.c
-  circular_queue_init.c
-  circular_queue_manip.c
-  circular_queue_node.c
-  linear_queue_init.c
-  linear_queue_manip.c
-  linear_queue_node.c
-  Generating Code...
+﻿  linear_queue_manip.c
   synapse-structure-queue.vcxproj -> E:\Programming\C++\Projects\Experimental\synapse-structure\libs\x64\debug\synapse-structure-queue.lib

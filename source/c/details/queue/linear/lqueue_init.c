@@ -8,9 +8,9 @@ __synapse_structure_lqueue_initialize()
 	__synapse_structure_lqueue_head* ptr_head
 		= malloc(sizeof(__synapse_structure_lqueue_head));
 
-	ptr_head->frontmost = malloc(sizeof(__synapse_structure_lqueue_head));
-	ptr_head->backmost  = ptr_head->frontmost;
-	ptr_head->count		= 1;
+	ptr_head->frontmost = NULL;
+	ptr_head->backmost  = NULL;
+	ptr_head->count		= 0   ;
 
 	return ptr_head;
 }

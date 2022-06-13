@@ -32,6 +32,18 @@ synapse_structure_linear_queue_retrieve_back(synapse_structure_linear_queue pQue
 }
 
 void
+synapse_structure_lqueue_push_back_node(synapse_structure_linear_queue pQueue, synapse_structure_linear_queue_node pNode)
+{
+	__synapse_structure_lqueue_push_back_node(pQueue.opaque, pNode.opaque);
+}
+
+void
+synapse_structure_lqueue_push_front_node(synapse_structure_linear_queue pQueue, synapse_structure_linear_queue_node pNode)
+{
+	__synapse_structure_lqueue_push_front_node(pQueue.opaque, pNode.opaque);
+}
+
+void
 synapse_structure_linear_queue_pop_back(synapse_structure_linear_queue pQueue)
 {
 	__synapse_structure_lqueue_pop_back(pQueue.opaque);

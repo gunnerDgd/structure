@@ -1,5 +1,7 @@
 #include <structure/details/queue/linear/lqueue_types.h>
+
 #include <stdlib.h>
+#include <string.h>
 
 void
 __synapse_structure_lqueue_push_back(__synapse_structure_lqueue_head* pHead, void* pData, size_t pDataSize)
@@ -7,12 +9,17 @@ __synapse_structure_lqueue_push_back(__synapse_structure_lqueue_head* pHead, voi
 	__synapse_structure_lqueue_node* ptr_node
 		= malloc(sizeof(__synapse_structure_lqueue_node));
 
-	ptr_node->ptr_entity  = pData;
+	ptr_node->ptr_entity  = malloc(pDataSize);
 	ptr_node->size_entity = pDataSize;
 
-	ptr_node->next = NULL;
-	ptr_node->prev = pHead->backmost;
-					 pHead->backmost = ptr_node;
+	memcpy(ptr_node->ptr_entity, pData, pDataSize);
+
+	if (!pHead->frontmost) pHead->frontmost = ptr_node;
+											  ptr_node->next = NULL;
+											  ptr_node->prev = pHead->backmost;
+
+	if (pHead->backmost) pHead->backmost->next = ptr_node;
+					     pHead->backmost	   = ptr_node;
 }
 
 void
@@ -21,12 +28,17 @@ __synapse_structure_lqueue_push_front(__synapse_structure_lqueue_head* pHead, vo
 	__synapse_structure_lqueue_node* ptr_node
 		= malloc(sizeof(__synapse_structure_lqueue_node));
 
-	ptr_node->ptr_entity  = pData;
+	ptr_node->ptr_entity  = malloc(pDataSize);
 	ptr_node->size_entity = pDataSize;
 
-	ptr_node->prev = NULL;
-	ptr_node->next = pHead->frontmost;
-					 pHead->frontmost = ptr_node;
+	memcpy(ptr_node->ptr_entity, pData, pDataSize);
+
+	if (!pHead->backmost) pHead->backmost = ptr_node;
+											ptr_node->prev = NULL;
+											ptr_node->next = pHead->frontmost;
+	
+	if (pHead->frontmost) pHead->frontmost->prev = ptr_node;
+						  pHead->frontmost		 = ptr_node;
 }
 
 __synapse_structure_lqueue_node*
