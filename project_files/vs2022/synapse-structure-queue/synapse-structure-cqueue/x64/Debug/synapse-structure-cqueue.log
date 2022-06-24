@@ -1,0 +1,9 @@
+﻿  cqueue_init.c
+  cqueue_manip.c
+  circular_queue_init.c
+E:\Programming\C++\Projects\Experimental\synapse-structure\source\c\queue\circular\circular_queue_init.c(6,31): warning C4028: formal parameter 1 different from declaration
+E:\Programming\C++\Projects\Experimental\synapse-structure\source\c\queue\circular\circular_queue_init.c(7,1): warning C4029: declared formal parameter list different from definition
+  circular_queue_manip.c
+  circular_queue_node.c
+  Generating Code...
+  synapse-structure-cqueue.vcxproj -> E:\Programming\C++\Projects\Experimental\synapse-structure\libs\x64\debug\lib-queue\synapse-structure-cqueue.lib

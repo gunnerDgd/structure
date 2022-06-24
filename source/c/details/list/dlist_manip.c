@@ -5,13 +5,13 @@ __synapse_structure_dlist_node*
 __synapse_structure_dlist_insert_front(__synapse_structure_dlist_head* pHead, void* pData, size_t pDataSize)
 {
 	__synapse_structure_dlist_node* ptr_node
-		= synapse_structure_mman_allocate(pHead->mman, NULL, sizeof(__synapse_structure_dlist_node));
+		= synapse_memory_mman_traits_allocate(pHead->mman, NULL, sizeof(__synapse_structure_dlist_node));
 
 	ptr_node->next = pHead->entry;
 	ptr_node->prev = NULL		 ;
 
 	ptr_node->node_size = pDataSize;
-	ptr_node->node_ptr  = synapse_structure_mman_allocate(pHead->mman, NULL, pDataSize);
+	ptr_node->node_ptr  = synapse_memory_mman_traits_allocate(pHead->mman, NULL, pDataSize);
 
 	memcpy				(ptr_node->node_ptr, pData, pDataSize);
 	InterlockedIncrement(&pHead->node_count);
@@ -25,13 +25,13 @@ __synapse_structure_dlist_node*
 __synapse_structure_dlist_insert_back(__synapse_structure_dlist_head* pHead, void* pData, size_t pDataSize)
 {
 	__synapse_structure_dlist_node* ptr_node
-		= synapse_structure_mman_allocate(pHead->mman, NULL, sizeof(__synapse_structure_dlist_node));
+		= synapse_memory_mman_traits_allocate(pHead->mman, NULL, sizeof(__synapse_structure_dlist_node));
 
 	ptr_node->next = NULL;
 	ptr_node->prev = pHead->backmost;
 
 	ptr_node->node_size = pDataSize;
-	ptr_node->node_ptr  = synapse_structure_mman_allocate(pHead->mman, NULL, pDataSize);
+	ptr_node->node_ptr  = synapse_memory_mman_traits_allocate(pHead->mman, NULL, pDataSize);
 
 	memcpy				(ptr_node->node_ptr, pData, pDataSize);
 	InterlockedIncrement(&pHead->node_count);
@@ -53,9 +53,9 @@ __synapse_structure_dlist_insert_at(__synapse_structure_dlist_head* pHead, void*
 		return __synapse_structure_dlist_insert_back (pHead, pData, pDataSize);
 	
 	ptr_node
-		= synapse_structure_mman_allocate(pHead->mman, NULL, sizeof(__synapse_structure_dlist_node));
+		= synapse_memory_mman_traits_allocate(pHead->mman, NULL, sizeof(__synapse_structure_dlist_node));
 	ptr_node->node_ptr
-		= synapse_structure_mman_allocate(pHead->mman, NULL, pDataSize);
+		= synapse_memory_mman_traits_allocate(pHead->mman, NULL, pDataSize);
 	
 	ptr_node->next = ptr_seek->next;
 	ptr_node->prev = ptr_seek;
@@ -77,9 +77,11 @@ __synapse_structure_dlist_erase_front(__synapse_structure_dlist_head* pHead)
 
 	if (!ptr_erase) return;
 
-	pHead->entry								 = ptr_erase->next;
-	synapse_structure_mman_deallocate(pHead->mman, ptr_erase->node_ptr, ptr_erase->node_size);
-	synapse_structure_mman_deallocate(pHead->mman, ptr_erase		  , sizeof(__synapse_structure_dlist_node));
+	pHead->entry = ptr_erase->next;
+	synapse_memory_mman_traits_deallocate
+		(pHead->mman, ptr_erase->node_ptr, ptr_erase->node_size);
+	synapse_memory_mman_traits_deallocate
+		(pHead->mman, ptr_erase		  , sizeof(__synapse_structure_dlist_node));
 
 	InterlockedDecrement(&pHead->node_count);
 }
@@ -92,9 +94,11 @@ __synapse_structure_dlist_erase_back(__synapse_structure_dlist_head* pHead)
 
 	if (!ptr_erase) return;
 
-	pHead->backmost								 = ptr_erase->prev;
-	synapse_structure_mman_deallocate(pHead->mman, ptr_erase->node_ptr, ptr_erase->node_size);
-	synapse_structure_mman_deallocate(pHead->mman, ptr_erase		  , sizeof(__synapse_structure_dlist_node));
+	pHead->backmost = ptr_erase->prev;
+	synapse_memory_mman_traits_deallocate
+		(pHead->mman, ptr_erase->node_ptr, ptr_erase->node_size);
+	synapse_memory_mman_traits_deallocate
+		(pHead->mman, ptr_erase		  , sizeof(__synapse_structure_dlist_node));
 
 	InterlockedDecrement(&pHead->node_count);
 }
@@ -110,8 +114,10 @@ __synapse_structure_dlist_erase_at(__synapse_structure_dlist_head* pHead, size_t
 	if (ptr_erase->prev) ptr_erase->prev->next = ptr_erase->next; else { pHead->entry	 = ptr_erase->next; }
 	if (ptr_erase->next) ptr_erase->next->prev = ptr_erase->prev; else { pHead->backmost = ptr_erase->prev; }
 
-	synapse_structure_mman_deallocate(pHead->mman, ptr_erase->node_ptr, ptr_erase->node_size);
-	synapse_structure_mman_deallocate(pHead->mman, ptr_erase, sizeof(__synapse_structure_dlist_node));
+	synapse_memory_mman_traits_deallocate
+		(pHead->mman, ptr_erase->node_ptr, ptr_erase->node_size);
+	synapse_memory_mman_traits_deallocate
+		(pHead->mman, ptr_erase, sizeof(__synapse_structure_dlist_node));
 
 	InterlockedDecrement(&pHead->node_count);
 }

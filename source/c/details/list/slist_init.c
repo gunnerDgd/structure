@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 __synapse_structure_slist_head* 
-__synapse_structure_slist_initialize(synapse_structure_mman* pMman)
+__synapse_structure_slist_initialize(synapse_memory_mman_traits* pMman)
 {
 	__synapse_structure_slist_head*
 		ptr_head = malloc(sizeof(__synapse_structure_slist_head));
@@ -12,13 +12,7 @@ __synapse_structure_slist_initialize(synapse_structure_mman* pMman)
 	ptr_head->entry			  = NULL;
 	ptr_head->back			  = NULL;
 	ptr_head->front			  = NULL;
-	
-	ptr_head->mman.allocate   = pMman->allocate  ;
-	ptr_head->mman.deallocate = pMman->deallocate;
-	ptr_head->mman.resize     = pMman->resize    ;
-
-	ptr_head->mman.copy_from  = pMman->copy_from ;
-	ptr_head->mman.copy_to    = pMman->copy_to   ;
+	ptr_head->mman			  = pMman;
 
 	ptr_head->node_count	  = 0;
 	ptr_head->reference_count = 0;
@@ -28,7 +22,23 @@ __synapse_structure_slist_initialize(synapse_structure_mman* pMman)
 
 void __synapse_structure_slist_destroy(__synapse_structure_slist_head* pHead)
 {
-	synapse_structure_mman_deallocate(pHead->mman, NULL, 0);
+	__synapse_structure_slist_node* ptr_node
+		= pHead->front;
+
+	while(ptr_node)
+	{
+		__synapse_structure_slist_node* ptr_next
+			= ptr_node->next;
+
+		synapse_memory_mman_traits_deallocate
+			(pHead->mman, ptr_node->data_ptr, ptr_node->data_size);
+		synapse_memory_mman_traits_deallocate
+			(pHead->mman, ptr_node, sizeof(__synapse_structure_slist_node));
+
+		ptr_node = ptr_next;
+	}
+
+	free(pHead);
 }
 
 long __synapse_structure_slist_reference(__synapse_structure_slist_head* pHead)

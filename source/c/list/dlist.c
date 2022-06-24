@@ -1,21 +1,13 @@
 #include <structure/list/double_linked.h>
+
 #include <structure/details/list/double_linked/dlist_init.h>
 #include <structure/details/list/double_linked/dlist_manip.h>
 
 synapse_structure_double_linked
-synapse_structure_double_linked_initialize(synapse_structure_mman pMman)
+synapse_structure_double_linked_initialize(synapse_memory_mman_traits* pMman)
 {
 	synapse_structure_double_linked ptr_dlist = 
 		{ .opaque = __synapse_structure_dlist_initialize(pMman) };
-
-	return ptr_dlist;
-}
-
-synapse_structure_double_linked
-synapse_structure_double_linked_initialize_default()
-{
-	synapse_structure_double_linked ptr_dlist = 
-		{ .opaque = __synapse_structure_dlist_initialize_default() };
 
 	return ptr_dlist;
 }

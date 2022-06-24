@@ -1,6 +1,6 @@
 #pragma once
 #include <stdint.h>
-#include <structure/mman/mman.h>
+#include <memory/mman/mman_traits.h>
 
 typedef struct __synapse_structure_dlist_node
 {
@@ -13,7 +13,7 @@ typedef struct __synapse_structure_dlist_node
 
 typedef struct __synapse_structure_dlist_head
 {
-	synapse_structure_mman		    mman    ;
+	synapse_memory_mman_traits    * mman    ;
 	__synapse_structure_dlist_node* entry   ,
 								  * backmost;
 

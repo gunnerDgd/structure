@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\priority">
+      <UniqueIdentifier>{1ca20877-fdc5-4479-a31f-a4a80f904a79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\priority\details">
+      <UniqueIdentifier>{3cfad2a5-b3b2-448a-aff0-49c0c5841fb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\priority">
+      <UniqueIdentifier>{2c3f7ff6-eead-4fd0-8bc6-bac49abfbed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\priority\details">
+      <UniqueIdentifier>{a8b9d4af-3f3d-49ff-bd82-d584484c7140}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_type.h">
+      <Filter>Header Files\priority\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_push.h">
+      <Filter>Header Files\priority\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_init.h">
+      <Filter>Header Files\priority\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_node.h">
+      <Filter>Header Files\priority\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_node_key.h">
+      <Filter>Header Files\priority\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_pop.h">
+      <Filter>Header Files\priority\details</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_init.c">
+      <Filter>Source Files\priority\details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_push.c">
+      <Filter>Source Files\priority\details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_node.c">
+      <Filter>Source Files\priority\details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_node_key.c">
+      <Filter>Source Files\priority\details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_pop.c">
+      <Filter>Source Files\priority\details</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

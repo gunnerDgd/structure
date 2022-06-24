@@ -2,7 +2,8 @@
 #include <string.h>
 
 void
-__synapse_structure_cqueue_read_from(__synapse_structure_cqueue_head* pHead, void* pRdPtr, size_t pRdSize)
+__synapse_structure_cqueue_read_from
+	(__synapse_structure_cqueue_head* pHead, void* pRdPtr, size_t pRdSize)
 {
 	if (pHead->rdptr->next == pHead->wrptr)
 		return;
