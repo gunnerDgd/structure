@@ -45,6 +45,18 @@
     <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_pop.h">
       <Filter>Header Files\priority\details</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\priority_queue_init.h">
+      <Filter>Header Files\priority</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\priority_queue_type.h">
+      <Filter>Header Files\priority</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\priority_queue_push.h">
+      <Filter>Header Files\priority</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\priority_queue_pop.h">
+      <Filter>Header Files\priority</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_init.c">
@@ -61,6 +73,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_pop.c">
       <Filter>Source Files\priority\details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\priority_queue_init.c">
+      <Filter>Source Files\priority</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\priority_queue_push.c">
+      <Filter>Source Files\priority</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\priority_queue_pop.c">
+      <Filter>Source Files\priority</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

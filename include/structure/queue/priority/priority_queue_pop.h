@@ -1,0 +1,10 @@
+#pragma once
+#include <structure/queue/priority/priority_queue_type.h>
+
+synapse_structure_priority_queue_node
+synapse_structure_priority_queue_pop_front
+	(synapse_structure_priority_queue);
+
+synapse_structure_priority_queue_node
+synapse_structure_priority_queue_pop_back
+	(synapse_structure_priority_queue);

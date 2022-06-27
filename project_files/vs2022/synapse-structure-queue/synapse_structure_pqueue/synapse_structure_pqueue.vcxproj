@@ -25,6 +25,10 @@
     <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_pop.h" />
     <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_push.h" />
     <ClInclude Include="..\..\..\..\include\structure\queue\priority\details\pqueue_type.h" />
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\priority_queue_init.h" />
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\priority_queue_pop.h" />
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\priority_queue_push.h" />
+    <ClInclude Include="..\..\..\..\include\structure\queue\priority\priority_queue_type.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_init.c" />
@@ -32,6 +36,9 @@
     <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_node_key.c" />
     <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_pop.c" />
     <ClCompile Include="..\..\..\..\source\c\queue\priority\details\pqueue_push.c" />
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\priority_queue_init.c" />
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\priority_queue_pop.c" />
+    <ClCompile Include="..\..\..\..\source\c\queue\priority\priority_queue_push.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
