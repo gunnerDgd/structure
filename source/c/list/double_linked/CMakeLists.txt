@@ -20,5 +20,5 @@ target_include_directories(
 )
 
 target_include_directories(
-    synapse_structure_dlist_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../include
+    synapse_structure_dlist_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../../include
 )
