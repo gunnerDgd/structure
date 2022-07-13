@@ -1,7 +1,0 @@
-﻿  pqueue_push.c
-  priority_queue_pop.c
-  priority_queue_push.c
-  Generating Code...
-E:\Programming\C++\Projects\Experimental\synapse-structure\source\c\queue\priority\priority_queue_push.c(40): warning C4716: 'synapse_structure_priority_queue_push_back_existing': must return a value
-E:\Programming\C++\Projects\Experimental\synapse-structure\source\c\queue\priority\priority_queue_push.c(21): warning C4716: 'synapse_structure_priority_queue_push_front_existing': must return a value
-  synapse_structure_pqueue.vcxproj -> E:\Programming\C++\Projects\Experimental\synapse-structure\libs\x64\debug\lib-queue\synapse_structure_pqueue.lib

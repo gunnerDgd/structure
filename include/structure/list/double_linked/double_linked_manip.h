@@ -2,22 +2,25 @@
 #include <structure/list/double_linked/double_linked_type.h>
 
 synapse_structure_double_linked_node
-synapse_structure_double_linked_insert_front(synapse_structure_double_linked, void*, size_t);
+synapse_structure_double_linked_insert_front
+	(synapse_structure_double_linked, void*, size_t);
 
 synapse_structure_double_linked_node
-synapse_structure_double_linked_insert_back (synapse_structure_double_linked, void*, size_t);
+synapse_structure_double_linked_insert_back 
+	(synapse_structure_double_linked, void*, size_t);
 
 synapse_structure_double_linked_node
-synapse_structure_double_linked_insert_at   (synapse_structure_double_linked, void*, size_t, size_t);
+synapse_structure_double_linked_insert_at
+	(synapse_structure_double_linked, synapse_structure_double_linked_node, void*, size_t);
 
 void
-synapse_structure_double_linked_erase_front	(synapse_structure_double_linked);
+synapse_structure_double_linked_erase_front
+	(synapse_structure_double_linked);
 
 void
-synapse_structure_double_linked_erase_back  (synapse_structure_double_linked);
+synapse_structure_double_linked_erase_back
+	(synapse_structure_double_linked);
 
 void
-synapse_structure_double_linked_erase_at    (synapse_structure_double_linked, size_t);
-
-synapse_structure_double_linked_node
-synapse_structure_double_linked_retrieve_at (synapse_structure_double_linked, size_t);
+synapse_structure_double_linked_erase_at
+	(synapse_structure_double_linked, synapse_structure_double_linked_node);
