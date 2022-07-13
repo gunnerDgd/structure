@@ -1,4 +1,6 @@
 #include <structure/details/list/double_linked/dlist_node.h>
+#include <stdlib.h>
+#include <string.h>
 
 __synapse_structure_dlist_node*
 __synapse_structure_dlist_retrieve_at
