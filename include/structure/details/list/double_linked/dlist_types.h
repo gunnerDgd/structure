@@ -1,8 +1,6 @@
 #pragma once
 #include <stdint.h>
-
 #include <synapse/memory/interface/memory_manager.h>
-#include <memory/defines/alloc.h>
 
 typedef struct 
 	__synapse_structure_dlist_node

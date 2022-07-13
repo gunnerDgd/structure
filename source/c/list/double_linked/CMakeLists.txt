@@ -23,7 +23,7 @@ target_include_directories(
     synapse_structure_dlist_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../include
 )
 
-add_dependencies(
+target_link_libraries(
     synapse_structure_dlist_lib,
     synapse_memory_dll
 )
