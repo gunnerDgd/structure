@@ -12,7 +12,7 @@ file(
 )
 
 add_library(
-  synapse_structure_dlist_lib STATIC ${src_synapse_memory_dll}
+  synapse_structure_dlist_lib STATIC ${src_synapse_structure_dlist_lib}
 )
 
 target_include_directories(
@@ -21,9 +21,4 @@ target_include_directories(
 
 target_include_directories(
     synapse_structure_dlist_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../include
-)
-
-target_link_libraries(
-    synapse_structure_dlist_lib,
-    synapse_memory_dll
 )
