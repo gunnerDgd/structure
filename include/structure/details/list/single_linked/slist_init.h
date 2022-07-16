@@ -3,11 +3,12 @@
 
 __synapse_structure_slist_head* 
 	__synapse_structure_slist_initialize 
-		(synapse_memory_mman_traits*);
+		(synapse_memory_manager*);
 
 __synapse_structure_slist_node*
 	__synapse_structure_slist_node_initialize
-		(__synapse_structure_slist_head*, void*, size_t);
+		(__synapse_structure_slist_head*, 
+         void*, size_t);
 
 void
 	__synapse_structure_slist_cleanup 
@@ -15,12 +16,5 @@ void
 
 void
 	__synapse_structure_slist_node_cleanup
-		(__synapse_structure_slist_head*, __synapse_structure_slist_node*);
-
-long
-	__synapse_structure_slist_reference  
-		(__synapse_structure_slist_head*);
-
-long
-	__synapse_structure_slist_dereference
-		(__synapse_structure_slist_head*);
+		(__synapse_structure_slist_head*, 
+         __synapse_structure_slist_node*);

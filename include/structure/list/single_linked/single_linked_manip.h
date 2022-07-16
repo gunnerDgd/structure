@@ -1,24 +1,19 @@
 #pragma once
 #include <structure/list/single_linked/single_linked_type.h>
 
-synapse_structure_single_linked_node
-synapse_structure_single_linked_insert_at	(synapse_structure_single_linked, void*, size_t, size_t);
+
+void
+    synapse_structure_single_linked_push
+        (synapse_structure_single_linked, void*, size_t);
 
 synapse_structure_single_linked_node
-synapse_structure_single_linked_insert_front(synapse_structure_single_linked, void*, size_t);
+    synapse_structure_single_linked_pop
+        (synapse_structure_single_linked);
 
 synapse_structure_single_linked_node
-synapse_structure_single_linked_insert_back (synapse_structure_single_linked, void*, size_t);
-
-void synapse_structure_single_linked_erase_at	(synapse_structure_single_linked, size_t);
-void synapse_structure_single_linked_erase_back (synapse_structure_single_linked);
-void synapse_structure_single_linked_erase_front(synapse_structure_single_linked);
+    synapse_structure_single_linked_pop_until_success
+        (synapse_structure_single_linked);
 
 synapse_structure_single_linked_node
-synapse_structure_single_linked_retrieve_front(synapse_structure_single_linked);
-
-synapse_structure_single_linked_node
-synapse_structure_single_linked_retrieve_back(synapse_structure_single_linked);
-
-synapse_structure_single_linked_node
-synapse_structure_single_linked_retrieve_at(synapse_structure_single_linked, size_t);
+    synapse_structure_single_linked_peek
+        (synapse_structure_single_linked);

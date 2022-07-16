@@ -1,5 +1,8 @@
 #pragma once
-#include <memory/mman/mman_traits.h>
+#include <synapse/memory/interface/memory_manager.h>
+
+#include <stdint.h>
+#include <stdlib.h>
 
 typedef struct 
 	__synapse_structure_slist_node
@@ -11,26 +14,20 @@ typedef struct
 
 	void
 		*node_parent;
-	synapse_memory_mman_block
+	synapse_memory_block
 		 node_mblock,
-		 node_data_mblock;
-	struct __synapse_structure_slist_node
+		 node_mblock_data;
+	volatile struct __synapse_structure_slist_node
 		*node_next;
 } __synapse_structure_slist_node;
 
 typedef struct 
 	__synapse_structure_slist_head
 {
-	volatile long
-		slist_refcount;
-	volatile long
-		slist_node_count;
-
-	__synapse_structure_slist_node
-		* front,
-		* back ;
-	synapse_memory_mman_traits
+	volatile __synapse_structure_slist_node
+		* entry;
+	synapse_memory_manager
 		* mman ;
-	synapse_memory_mman_block
+	synapse_memory_block
 		  mman_mblock;
 } __synapse_structure_slist_head;

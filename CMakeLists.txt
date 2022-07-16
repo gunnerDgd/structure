@@ -6,4 +6,14 @@ project(
     LANGUAGES C
 )
 
+set(
+    synapse_slist_standalone_build 
+    OFF
+)
+
+set(
+    synapse_dlist_standalone_build
+    OFF
+)
+
 add_subdirectory(source/c/list/double_linked)
