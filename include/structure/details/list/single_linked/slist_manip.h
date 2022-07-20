@@ -5,11 +5,10 @@ void
 	__synapse_structure_slist_push
 		(__synapse_structure_slist_head*, void*, size_t);
 
-__synapse_structure_slist_node*
+void*
 	__synapse_structure_slist_pop
 		(__synapse_structure_slist_head*);
 
 __synapse_structure_slist_node* 
 	__synapse_structure_slist_peek
 		(__synapse_structure_slist_head*);
-

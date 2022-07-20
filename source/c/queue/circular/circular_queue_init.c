@@ -2,18 +2,22 @@
 #include <structure/details/queue/circular/cqueue_init.h>
 
 synapse_structure_circular_queue
-synapse_structure_circular_queue_initialize
-	(synapse_memory_mman_traits* pMman, size_t pBlockSize, size_t pNodeCount)
+	synapse_structure_circular_queue_initialize
+		(size_t pBlockSize, size_t pNodeCount)
 {
-	synapse_structure_circular_queue ptr_queue =
-		{ .opaque = __synapse_structure_cqueue_initialize(pMman, pBlockSize, pNodeCount) };
+	synapse_structure_opaque_handle_init
+		(synapse_structure_circular_queue, hnd_cqueue,
+			__synapse_structure_cqueue_initialize
+				(pBlockSize, pNodeCount));
 
-	return ptr_queue;
+	return hnd_cqueue;
 }
 
 void
 synapse_structure_circular_queue_cleanup
 	(synapse_structure_circular_queue pCqueue)
 {
-	__synapse_structure_cqueue_cleanup(pCqueue.opaque);
+	__synapse_structure_cqueue_cleanup
+		(synapse_structure_opaque_handle_reference
+			(pCqueue));
 }

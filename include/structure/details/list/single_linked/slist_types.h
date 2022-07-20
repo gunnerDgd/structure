@@ -28,6 +28,4 @@ typedef struct
 		* entry;
 	synapse_memory_manager
 		* mman ;
-	synapse_memory_block
-		  mman_mblock;
 } __synapse_structure_slist_head;

@@ -1,8 +1,0 @@
-#pragma once
-#include <structure/queue/circular/circular_queue_types.h>
-
-void*
-synapse_structure_circular_queue_node_data(synapse_structure_circular_queue_node);
-
-size_t
-synapse_structure_circular_queue_node_size(synapse_structure_circular_queue);

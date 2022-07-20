@@ -8,5 +8,11 @@
 synapse_structure_opaque_handle_declare
     (synapse_structure_single_linked);
 
-synapse_structure_opaque_handle_declare
-    (synapse_structure_single_linked_node);
+typedef struct
+    synapse_structure_single_linked_node
+{
+    void*
+        ptr_node_data;
+    size_t
+        size_node_data;
+} synapse_structure_single_linked_node;

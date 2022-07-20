@@ -2,8 +2,9 @@
 #include <structure/details/list/single_linked/slist_init.h>
 
 #include <stdbool.h>
+#include <Windows.h>
 
-void 
+void
 	__synapse_structure_slist_push
 		(__synapse_structure_slist_head* pList, void* pData, size_t pDataSize)
 {
@@ -12,33 +13,40 @@ void
 			= __synapse_structure_slist_node_initialize
 					(pList, pData, pDataSize);
 
-	while
-		(!__atomic_compare_exchange_n
-			(&pList->entry, &pList->entry, 
-				ptr_node, false, __ATOMIC_RELEASE, __ATOMIC_RELAXED));
+	while 
+		(InterlockedCompareExchange64
+			(&pList->entry, ptr_node, pList->entry)
+				== ptr_node);
 }
 
-__synapse_structure_slist_node*
+void*
 	__synapse_structure_slist_pop
 		(__synapse_structure_slist_head* pList)
 {
 	__synapse_structure_slist_node*
-		ptr_pop
-			= NULL;
+		ptr_pop = NULL;
+	void*
+		ptr_pop_data = NULL;
+
+	if(!pList->entry)
+		return NULL;
+	
 	do
 	{
 		ptr_pop
 			= pList->entry;
-		
-		if(!ptr_pop)
-			return NULL;
 	} while 
-		(!__atomic_compare_exchange_n
-			(&pList->entry, &pList->entry,
-				pList->entry->node_next, 
-					false, __ATOMIC_RELEASE, __ATOMIC_RELAXED));
+		(InterlockedCompareExchange64
+			(&pList->entry, pList->entry->node_next, pList->entry)
+				== pList->entry->node_next);
 
-	return ptr_pop;
+	ptr_pop_data
+		= ptr_pop->data_ptr;
+	__synapse_structure_slist_node_cleanup
+		(pList, ptr_pop);
+
+	return
+		ptr_pop_data;
 }
 
 __synapse_structure_slist_node* 

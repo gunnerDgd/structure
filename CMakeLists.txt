@@ -6,14 +6,7 @@ project(
     LANGUAGES C
 )
 
-set(
-    synapse_slist_standalone_build 
-    OFF
-)
-
-set(
-    synapse_dlist_standalone_build
-    OFF
-)
+option(SYNAPSE_STRUCTIRE_SLIST_STANDALONE OFF)
+option(SYNAPSE_STRUCTIRE_DLIST_STANDALONE OFF)
 
 add_subdirectory(source/c/list/double_linked)

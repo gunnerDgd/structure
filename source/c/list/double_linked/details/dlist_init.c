@@ -1,28 +1,24 @@
 #include <structure/details/list/double_linked/dlist_init.h>
 #include <Windows.h>
 
+#include <synapse/memory/memory.h>
+
 __synapse_structure_dlist_head*
 	__synapse_structure_dlist_initialize
 		(synapse_memory_manager* pMman)
 {
-	synapse_memory_block
-		hnd_dlist_mblock 
-			= pMman->allocate
-					(pMman->hnd_mman,
-							NULL, sizeof(__synapse_structure_dlist_head));
-
 	__synapse_structure_dlist_head*
 		ptr_dlist
-			= pMman->block_pointer
-					(hnd_dlist_mblock);
-	
+			= synapse_system_allocate
+				(sizeof(__synapse_structure_dlist_head));
 
-	ptr_dlist->mman			   = pMman;
-	ptr_dlist->backmost		   = NULL  ;
-	ptr_dlist->entry		   = NULL  ;
+	if(!pMman)	
+		pMman = synapse_system_memory_manager();
 
-	ptr_dlist->node_count      = 0;
-	ptr_dlist->reference_count = 1;
+	ptr_dlist->mman		= pMman;
+	ptr_dlist->backmost = NULL  ;
+	ptr_dlist->entry	= NULL  ;
+
 
 	return ptr_dlist;
 }
@@ -34,13 +30,6 @@ void
 	__synapse_structure_dlist_node*
 		ptr_node
 			= pHead->entry;
-
-	if (pHead->reference_count) {
-	__synapse_structure_dlist_dereference
-		(pHead);
-
-		return;
-	}
 
 	while (ptr_node)
 	{
@@ -57,26 +46,10 @@ void
 			(pHead->mman->hnd_mman, ptr_dealloc->mblock_node_ptr);
 	}
 
-	pHead->mman->deallocate
-		(pHead->mman->hnd_mman, pHead->hnd_mblock);
+	synapse_system_deallocate
+		(pHead);
 }
 
-void
-__synapse_structure_dlist_reference
-	(__synapse_structure_dlist_head* pHead)
-{
-	InterlockedIncrement
-		(&pHead->reference_count);
-}
-
-void
-__synapse_structure_dlist_dereference
-	(__synapse_structure_dlist_head* pHead)
-{
-	if(pHead->reference_count)
-		InterlockedDecrement
-			(&pHead->reference_count);
-}
 
 __synapse_structure_dlist_node*
 __synapse_structure_dlist_node_initialize

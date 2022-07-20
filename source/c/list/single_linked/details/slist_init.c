@@ -1,29 +1,26 @@
 #include <structure/details/list/single_linked/slist_init.h>
 #include <structure/details/list/single_linked/slist_manip.h>
 
+#include <synapse/memory/memory.h>
 #include <string.h>
+
 
 __synapse_structure_slist_head* 
 	__synapse_structure_slist_initialize
 		(synapse_memory_manager* pMman)
 {
-	synapse_memory_block
-		hnd_mblock
-			= pMman->allocate
-					(pMman->hnd_mman, 
-						NULL, sizeof(__synapse_structure_slist_head));
-
 	__synapse_structure_slist_head*
-		ptr_head
-			= pMman->block_pointer
-						(hnd_mblock);
+		ptr_head;
+
+	if(!pMman)
+		pMman = synapse_system_memory_manager();
+
+	ptr_head
+		= synapse_system_allocate
+				(sizeof(__synapse_structure_slist_head));
 
 	ptr_head->entry = NULL;
-	
-	ptr_head->mman  
-		= pMman;
-	ptr_head->mman_mblock
-		= hnd_mblock;
+	ptr_head->mman  = pMman;
 
 	return ptr_head;
 }
@@ -41,9 +38,8 @@ void
 		__synapse_structure_slist_node_cleanup
 			(pHead, ptr_erase);
 
-	pHead->mman->deallocate
-		(pHead->mman->hnd_mman,
-			pHead->mman_mblock);
+	synapse_system_deallocate
+		(pHead);
 }
 
 __synapse_structure_slist_node*

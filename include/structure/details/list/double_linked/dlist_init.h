@@ -16,11 +16,3 @@ void
 void
 	__synapse_structure_dlist_node_cleanup
 		(__synapse_structure_dlist_head*, __synapse_structure_dlist_node*);
-
-void
-	__synapse_structure_dlist_reference
-		(__synapse_structure_dlist_head*);
-
-void
-	__synapse_structure_dlist_dereference
-		(__synapse_structure_dlist_head*);

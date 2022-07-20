@@ -1,12 +1,17 @@
 #pragma once
-#include <stdint.h>
+#include <structure/defines/handle/opaque_handle.h>
 
-typedef struct synapse_structure_circular_queue_node
+#include <stdint.h>
+#include <stddef.h>
+
+typedef struct
+	synapse_structure_circular_queue_node
 {
-	void* opaque;
+	void*
+		ptr_node_data;
+	size_t
+		size_node_data;
 } synapse_structure_circular_queue_node;
 
-typedef struct synapse_structure_circular_queue
-{
-	void* opaque;
-} synapse_structure_circular_queue;
+synapse_structure_opaque_handle_declare
+	(synapse_structure_circular_queue);

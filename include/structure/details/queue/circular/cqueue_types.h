@@ -1,27 +1,29 @@
 #pragma once
 #include <stdint.h>
-#include <memory/mman/mman_traits.h>
+#include <synapse/memory/memory.h>
 
-typedef struct __synapse_structure_cqueue_node
+typedef struct 
+	__synapse_structure_cqueue_node
 {
-	void*  ptr_entity ;
+	void*  
+		ptr_entity;
 	struct __synapse_structure_cqueue_node*
-		next;
+		ptr_next  ;
 } __synapse_structure_cqueue_node;
 
-typedef struct __synapse_structure_cqueue_head
+typedef struct 
+	__synapse_structure_cqueue_head
 {
-	synapse_memory_mman_traits*
-		ptr_mman;
 	void*
-		ptr_entity;
+		ptr_cqueue_arena;
 	__synapse_structure_cqueue_node*
-		entry;
+		ptr_cqueue_entry;
 
 	__synapse_structure_cqueue_node
-		* rdptr,
-		* wrptr;
+		* ptr_cqueue_rdptr,
+		* ptr_cqueue_wrptr;
 
-	size_t node_count,
-		   node_size ;	
+	size_t 
+		count_cqueue,
+		size_cqueue_node;	
 } __synapse_structure_cqueue_head;
