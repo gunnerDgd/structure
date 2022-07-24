@@ -1,4 +1,7 @@
+#pragma once
+
 #include <structure/queue/spsc/spsc_type.h>
+#include <stdbool.h>
 
 synapse_structure_spsc_queue_probe
     synapse_structure_spsc_queue_read_probe

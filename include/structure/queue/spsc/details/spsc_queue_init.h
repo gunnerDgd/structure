@@ -1,3 +1,4 @@
+#pragma once
 #include <structure/queue/spsc/details/spsc_queue_type.h>
 
 __synapse_structure_spsc_queue*

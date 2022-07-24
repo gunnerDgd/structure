@@ -124,3 +124,23 @@ synapse_structure_dll
         synapse_structure_double_linked_node_prev
             (pDoubleLinkedNode);
 }
+
+synapse_structure_dll
+    synapse_double_linked_node
+        synapse_double_linked_node_begin
+            (synapse_double_linked pDoubleLinkedNode)
+{
+    return
+        synapse_structure_double_linked_node_begin
+            (pDoubleLinkedNode);
+}
+
+synapse_structure_dll
+    synapse_double_linked_node
+        synapse_double_linked_node_end
+            (synapse_double_linked pDoubleLinkedNode)
+{
+    return
+        synapse_structure_double_linked_node_end
+            (pDoubleLinkedNode);
+}

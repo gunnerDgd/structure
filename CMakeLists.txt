@@ -6,7 +6,11 @@ project(
     LANGUAGES C
 )
 
-option(SYNAPSE_STRUCTIRE_SLIST_STANDALONE OFF)
-option(SYNAPSE_STRUCTIRE_DLIST_STANDALONE OFF)
+add_subdirectory(source/c/queue/spsc)
+add_subdirectory(source/c/queue/mpmc)
+add_subdirectory(source/c/queue/circular)
 
+add_subdirectory(source/c/list/single_linked)
 add_subdirectory(source/c/list/double_linked)
+
+add_subdirectory(source/shared_libs)

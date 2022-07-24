@@ -1,3 +1,5 @@
+#pragma once
+
 #include <structure/queue/spsc/details/spsc_queue_type.h>
 #include <stdbool.h>
 

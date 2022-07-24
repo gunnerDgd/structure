@@ -12,11 +12,15 @@ void
 		ptr_node
 			= __synapse_structure_slist_node_initialize
 					(pList, pData, pDataSize);
-
+	do
+	{
+		ptr_node->node_next
+			= pList->entry;
+	}
 	while 
 		(InterlockedCompareExchange64
-			(&pList->entry, ptr_node, pList->entry)
-				== ptr_node);
+			(&pList->entry, ptr_node, ptr_node->node_next)
+				!= ptr_node->node_next);
 }
 
 void*
@@ -36,9 +40,10 @@ void*
 		ptr_pop
 			= pList->entry;
 	} while 
-		(InterlockedCompareExchange64
-			(&pList->entry, pList->entry->node_next, pList->entry)
-				== pList->entry->node_next);
+		(pList->entry->node_next
+			!= InterlockedCompareExchange64
+					(&pList->entry, 
+						pList->entry->node_next, pList->entry));
 
 	ptr_pop_data
 		= ptr_pop->data_ptr;

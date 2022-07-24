@@ -16,9 +16,6 @@ __synapse_structure_dlist_insert_front
 	ptr_node->prev	    = NULL		  ;
 	ptr_node->node_head = pHead		  ;
 
-	InterlockedIncrement
-		(&pHead->node_count);
-
 						  pHead->entry    = ptr_node;
 	if (!pHead->backmost) pHead->backmost = ptr_node;
 	return									ptr_node;
@@ -36,9 +33,6 @@ __synapse_structure_dlist_insert_back
 	ptr_node->next		= NULL;
 	ptr_node->prev		= pHead->backmost;
 	ptr_node->node_head = pHead;
-
-	InterlockedIncrement
-		(&pHead->node_count);
 
 	if(pHead->backmost) pHead->backmost->next = ptr_node;
 					    pHead->backmost		  = ptr_node;
@@ -61,9 +55,6 @@ __synapse_structure_dlist_insert_at
 	ptr_node->prev		= ptr_seek;
 	ptr_node->node_head = pHead;
 
-	InterlockedIncrement
-		(&pHead->node_count);
-
 						ptr_seek->next		 = ptr_node;
 	if (ptr_seek->next) ptr_seek->next->prev = ptr_node;
 
@@ -84,9 +75,6 @@ __synapse_structure_dlist_erase_front
 		= ptr_erase->next;
 	__synapse_structure_dlist_node_cleanup
 		(pHead, ptr_erase);
-
-	InterlockedDecrement
-		(&pHead->node_count);
 }
 
 void
@@ -103,8 +91,6 @@ __synapse_structure_dlist_erase_back
 	
 	__synapse_structure_dlist_node_cleanup
 		(pHead, ptr_erase);
-	InterlockedDecrement
-		(&pHead->node_count);
 }
 
 

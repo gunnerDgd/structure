@@ -5,25 +5,30 @@ void*
     __synapse_structure_mpmc_queue_read_from
         (__synapse_structure_mpmc_queue* pMpmcQueue)
 {
-    __synapse_structure_mpmc_queue_node*
+    void*
         ptr_read;
     
-    if(ptr_read->ptr_mpmc_next
-            == pMpmcQueue->ptr_mpmc_wrptr)
-                return NULL;
+    if(!InterlockedXor64
+            (pMpmcQueue->ptr_mpmc_rdptr->ptr_mpmc_next, 
+                pMpmcQueue->ptr_mpmc_wrptr))
+                    return NULL;
 
-    do
-    {
-        ptr_read
-            = pMpmcQueue->ptr_mpmc_rdptr;
-    } while
-        (InterlockedCompareExchange64
-            (&pMpmcQueue->ptr_mpmc_rdptr,
-                pMpmcQueue->ptr_mpmc_rdptr->ptr_mpmc_next,
-                    ptr_read) != ptr_read);
+    ptr_read
+        = InterlockedCompareExchange64
+                (&pMpmcQueue->ptr_mpmc_rdptr->ptr_mpmc_data,
+                    0, pMpmcQueue->ptr_mpmc_rdptr->ptr_mpmc_data);
+    
+    if(!ptr_read) 
+        return NULL;
+    while
+        (pMpmcQueue->ptr_mpmc_rdptr
+            != InterlockedCompareExchange64
+                    (&pMpmcQueue->ptr_mpmc_rdptr,
+                        pMpmcQueue->ptr_mpmc_rdptr->ptr_mpmc_next,
+                            pMpmcQueue->ptr_mpmc_rdptr));
     
     return
-        ptr_read->ptr_mpmc_data;
+        ptr_read;
 }
 
 void*
@@ -46,22 +51,29 @@ bool
     __synapse_structure_mpmc_queue_write_to
         (__synapse_structure_mpmc_queue* pMpmcQueue, void* pMpmcData)
 {
-    void
-        *ptr_write;
-    
-    if(pMpmcQueue->ptr_mpmc_wrptr->ptr_mpmc_next
-            != pMpmcQueue->ptr_mpmc_rdptr)
+    void*
+        ptr_mpmc_data;
+
+    if(!InterlockedXor64
+            (pMpmcQueue->ptr_mpmc_wrptr,
+                pMpmcQueue->ptr_mpmc_rdptr))
                     return false;
 
-    do
-    {
-        ptr_write
-            = pMpmcQueue->ptr_mpmc_wrptr->ptr_mpmc_data;
-    } while(ptr_write 
-                != InterlockedCompareExchange64
-                        (&pMpmcQueue->ptr_mpmc_wrptr->ptr_mpmc_data,
-                            pMpmcData, ptr_write));
-
+    ptr_mpmc_data
+        = InterlockedCompareExchange64
+                (&pMpmcQueue->ptr_mpmc_wrptr->ptr_mpmc_data,
+                    pMpmcData, 0);
+    
+    if(ptr_mpmc_data)
+        return false;
+    
+    while
+        (pMpmcQueue->ptr_mpmc_wrptr
+            != InterlockedCompareExchange64
+                    (&pMpmcQueue->ptr_mpmc_wrptr,
+                        pMpmcQueue->ptr_mpmc_wrptr->ptr_mpmc_next,
+                            pMpmcQueue->ptr_mpmc_wrptr));
+    
     return true;
 }
 

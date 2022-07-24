@@ -1,3 +1,5 @@
+#pragma once
+
 #include <structure/queue/mpmc/mpmc_type.h>
 #include <stdbool.h>
 

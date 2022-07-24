@@ -1,5 +1,6 @@
 #pragma once
 #include <structure/queue/circular/circular_queue_types.h>
+#include <stdbool.h>
 
 void*
     synapse_structure_circular_queue_read_from

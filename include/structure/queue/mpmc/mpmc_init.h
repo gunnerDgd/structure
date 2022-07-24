@@ -1,3 +1,4 @@
+#pragma once
 #include <structure/queue/mpmc/mpmc_type.h>
 
 synapse_structure_mpmc_queue
@@ -6,4 +7,4 @@ synapse_structure_mpmc_queue
 
 void
     synapse_structure_mpmc_queue_cleanup
-        (synapsse_structure_mpmc_queue);
+        (synapse_structure_mpmc_queue);

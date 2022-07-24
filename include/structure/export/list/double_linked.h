@@ -64,3 +64,13 @@ synapse_structure_dll
     synapse_double_linked_node
         synapse_double_linked_node_prev
             (synapse_double_linked_node);
+
+synapse_structure_dll
+    synapse_double_linked_node
+        synapse_double_linked_node_begin
+            (synapse_double_linked);
+
+synapse_structure_dll
+    synapse_double_linked_node
+        synapse_double_linked_node_end
+            (synapse_double_linked);
