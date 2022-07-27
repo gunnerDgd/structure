@@ -71,6 +71,8 @@ __synapse_structure_dlist_erase_front
 
 	if (!ptr_erase) return;
 
+	if(ptr_erase->next)
+		ptr_erase->next->prev = NULL;
 	pHead->entry
 		= ptr_erase->next;
 	if(!pHead->entry)
@@ -88,6 +90,8 @@ __synapse_structure_dlist_erase_back
 
 	if (!ptr_erase) return;
 
+	if(ptr_erase->prev)
+		ptr_erase->prev->next = NULL;
 	pHead->backmost 
 		= ptr_erase->prev;
 	if(!pHead->backmost)
