@@ -1,8 +1,9 @@
-#include <structure/details/list/single_linked/slist_manip.h>
-#include <structure/details/list/single_linked/slist_init.h>
-
 #include <stdbool.h>
 #include <Windows.h>
+
+#include <structure/details/list/single_linked/slist_init.h>
+#include <structure/details/list/single_linked/slist_manip.h>
+#include <structure/details/list/single_linked/slist_atomic.h>
 
 void
 	__synapse_structure_slist_push
@@ -18,9 +19,8 @@ void
 			= pList->entry;
 	}
 	while 
-		(InterlockedCompareExchange64
-			(&pList->entry, ptr_node, ptr_node->node_next)
-				!= ptr_node->node_next);
+		(__synapse_structure_slist_cmpxchg
+			(&pList->entry, ptr_node->node_next, ptr_node));
 }
 
 void*
@@ -40,10 +40,9 @@ void*
 		ptr_pop
 			= pList->entry;
 	} while 
-		(pList->entry->node_next
-			!= InterlockedCompareExchange64
-					(&pList->entry, 
-						pList->entry->node_next, pList->entry));
+		(__synapse_structure_slist_cmpxchg
+			(&pList->entry,
+				pList->entry->node_next, pList->entry));
 
 	ptr_pop_data
 		= ptr_pop->data_ptr;

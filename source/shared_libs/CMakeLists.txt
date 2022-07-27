@@ -21,11 +21,7 @@ add_library(
 
 target_link_libraries(
     synapse_structure_dll
-    synapse_structure_cqueue_lib
-    synapse_structure_spsc_lib
-    synapse_structure_mpmc_lib
-    synapse_structure_slist_lib
-    synapse_structure_dlist_lib
+    synapse_structure_lib
     synapse_memory_dll
 )
 
@@ -33,16 +29,45 @@ target_include_directories(
     synapse_structure_dll 
     PUBLIC
     ${CMAKE_SOURCE_DIR}/include
-)
-
-target_include_directories(
-    synapse_structure_dll
-    PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/../../include
 )
 
-target_compile_options(
+if("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
+    set_target_properties(
+        synapse_structure_dll
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/lib/build
+        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+    )
+
+    target_compile_options(
+        synapse_structure_dll 
+        PRIVATE 
+        /Dsynapse_structure_export_mode
+    )
+
+    target_link_libraries(
+        synapse_structure_dll
+        ws2_32.lib
+    )
+elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
+    set_target_properties(
+        synapse_structure_dll
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+    )
+
+    target_compile_options(
+        synapse_structure_dll 
+        PRIVATE 
+        -Dsynapse_structure_export_mode
+    )
+endif()
+
+target_link_libraries(
     synapse_structure_dll
-    PUBLIC
-    /Dsynapse_structure_export_mode
+    synapse_memory_dll
 )
