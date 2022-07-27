@@ -91,7 +91,7 @@ __synapse_structure_dlist_erase_back
 	pHead->backmost 
 		= ptr_erase->prev;
 	if(!pHead->backmost)
-		pHead->backmost = pHead->entry;
+		pHead->entry = NULL;
 	
 	__synapse_structure_dlist_node_cleanup
 		(pHead, ptr_erase);
