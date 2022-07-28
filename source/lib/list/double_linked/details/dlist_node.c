@@ -60,14 +60,10 @@ __synapse_structure_dlist_assign_node_data
 			= pNode->node_head;
 
 	pHead->mman->deallocate
-		(pHead->mman->hnd_mman, pNode->mblock_data_ptr);
-	pNode->mblock_data_ptr
+		(pHead->mman->hnd_mman, pNode->node_ptr);
+	pNode->node_ptr
 		= pHead->mman->allocate
 			(pHead->mman->hnd_mman, NULL, pDataSize);
-	
-	pNode->node_ptr
-		= pHead->mman->block_pointer
-			(pNode->mblock_data_ptr);
 	pNode->node_size
 		= pDataSize;
 

@@ -5,18 +5,12 @@
 typedef struct 
 	__synapse_structure_dlist_node
 {
-	void*  
-		node_ptr ;
-	size_t 
-		node_size;
+	void*  node_ptr ;
+	size_t node_size;
 	
 	void*
 		node_head; // Parent Head of the Node.
 				   // Used for Identify Node's Head.
-	synapse_memory_block
-		mblock_node_ptr,
-		mblock_data_ptr;
-
 	struct __synapse_structure_dlist_node
 		*prev,
 		*next;
@@ -26,8 +20,8 @@ typedef struct
 typedef struct 
 	__synapse_structure_dlist_head
 {
-	synapse_memory_manager    
-		*mman      ;
+	synapse_memory_manager
+		*mman;
 
 	__synapse_structure_dlist_node
 		*entry   ,
