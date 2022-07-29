@@ -23,34 +23,39 @@ void
 			(&pList->entry, ptr_node->node_next, ptr_node));
 }
 
-void*
+void
+	__synapse_structure_slist_push_node
+		(__synapse_structure_slist_head* pList, __synapse_structure_slist_node* pNode)
+{
+	do
+	{
+		pNode->node_next
+			= pList->entry;
+	}
+	while 
+		(__synapse_structure_slist_cmpxchg
+			(&pList->entry, pNode->node_next, pNode));
+}
+
+__synapse_structure_slist_node*
 	__synapse_structure_slist_pop
 		(__synapse_structure_slist_head* pList)
 {
 	__synapse_structure_slist_node*
 		ptr_pop = NULL;
-	void*
-		ptr_pop_data = NULL;
 
-	if(!pList->entry)
-		return NULL;
-	
 	do
 	{
 		ptr_pop
 			= pList->entry;
+		
+		if(!ptr_pop) return 0;
 	} while 
 		(__synapse_structure_slist_cmpxchg
-			(&pList->entry,
-				pList->entry->node_next, pList->entry));
-
-	ptr_pop_data
-		= ptr_pop->data_ptr;
-	__synapse_structure_slist_node_cleanup
-		(pList, ptr_pop);
+			(&pList->entry, ptr_pop, ptr_pop->node_next));
 
 	return
-		ptr_pop_data;
+		ptr_pop;
 }
 
 __synapse_structure_slist_node* 

@@ -8,3 +8,7 @@ synapse_structure_single_linked
 void
 	synapse_structure_single_linked_cleanup
 		(synapse_structure_single_linked);
+
+void
+	synapse_structure_single_linked_node_cleanup
+		(synapse_structure_single_linked, synapse_structure_single_linked_node);

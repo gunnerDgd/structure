@@ -59,8 +59,11 @@ __synapse_structure_slist_node*
 		= pDataSize;
 	memcpy
 		(ptr_node->data_ptr, pData, pDataSize);
+	
 	ptr_node->node_parent
 		= pHead;
+	ptr_node->node_next
+		= NULL;
 
 	return
 		ptr_node;

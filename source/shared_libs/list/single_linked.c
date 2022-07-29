@@ -32,7 +32,16 @@ synapse_structure_dll
 }
 
 synapse_structure_dll
-    void*
+    void
+        synapse_single_linked_push_node
+            (synapse_single_linked pSingleLinked, synapse_single_linked_node pNode)
+{
+    synapse_structure_single_linked_push_node
+        (pSingleLinked, pNode);
+}
+
+synapse_structure_dll
+    synapse_single_linked_node
         synapse_single_linked_pop
             (synapse_single_linked pSingleLinked)
 {
@@ -42,7 +51,7 @@ synapse_structure_dll
 }
 
 synapse_structure_dll
-    void*
+    synapse_single_linked_node
         synapse_single_linked_pop_until_success
             (synapse_single_linked pSingleLinked)
 {
@@ -59,4 +68,14 @@ synapse_structure_dll
     return
         synapse_structure_single_linked_peek
             (pSingleLinked);
+}
+
+synapse_structure_dll
+    void*
+        synapse_single_linked_node_data
+            (synapse_single_linked_node pNode)
+{
+    return
+        synapse_structure_single_linked_node_data
+            (pNode);
 }
