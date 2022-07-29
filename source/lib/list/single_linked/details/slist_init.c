@@ -46,32 +46,19 @@ __synapse_structure_slist_node*
 	__synapse_structure_slist_node_initialize
 		(__synapse_structure_slist_head* pHead, void* pData, size_t pDataSize)
 {
-	synapse_memory_block
-		hnd_mblock
-			= pHead->mman->allocate
-					(pHead->mman->hnd_mman, 
-						NULL, sizeof(__synapse_structure_slist_node)),
-		hnd_mblock_data
-			= pHead->mman->allocate
-					(pHead->mman->hnd_mman, NULL, pDataSize);
-
 	__synapse_structure_slist_node*
 		ptr_node
-			= pHead->mman->block_pointer
-					(hnd_mblock);
-	
+			= pHead->mman->allocate
+					(pHead->mman->hnd_mman, 
+						NULL, sizeof(__synapse_structure_slist_node));
+		
 	ptr_node->data_ptr
-		= pHead->mman->block_pointer
-				(hnd_mblock);
+		= pHead->mman->allocate
+				(pHead->mman->hnd_mman, NULL, pDataSize);
 	ptr_node->data_size
 		= pDataSize;
 	memcpy
 		(ptr_node->data_ptr, pData, pDataSize);
-
-	ptr_node->node_mblock
-		= hnd_mblock;
-	ptr_node->node_mblock_data
-		= hnd_mblock_data;
 	ptr_node->node_parent
 		= pHead;
 
@@ -84,7 +71,7 @@ void
 		(__synapse_structure_slist_head* pHead, __synapse_structure_slist_node* pNode)
 {
 	pHead->mman->deallocate
-		(pHead->mman->hnd_mman, pNode->node_mblock_data);
+		(pHead->mman->hnd_mman, pNode->data_ptr);
 	pHead->mman->deallocate
-		(pHead->mman->hnd_mman, pNode->node_mblock);
+		(pHead->mman->hnd_mman, pNode);
 }

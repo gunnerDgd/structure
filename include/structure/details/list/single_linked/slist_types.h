@@ -14,9 +14,6 @@ typedef struct
 
 	void
 		*node_parent;
-	synapse_memory_block
-		 node_mblock,
-		 node_mblock_data;
 	volatile struct __synapse_structure_slist_node
 		*node_next;
 } __synapse_structure_slist_node;
