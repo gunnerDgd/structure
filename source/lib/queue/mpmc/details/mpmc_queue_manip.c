@@ -12,27 +12,21 @@ void*
 
     do
     {
-        ptr_read
+        ptr_read 
             = pMpmcQueue->ptr_mpmc_rdptr;
         ptr_read_data
             = ptr_read->ptr_mpmc_data;
-
-        if(!ptr_read_data)
-            return 0;
+        
         if(ptr_read == pMpmcQueue->ptr_mpmc_wrptr)
-                 return 0;
+            return 0;
     }
     while
-        (ptr_read_data !=
-                InterlockedCompareExchange64
-                    (&ptr_read->ptr_mpmc_data, 0, ptr_read->ptr_mpmc_data));
+        (!InterlockedCompareExchange64
+            (&ptr_read->ptr_mpmc_data, 0, ptr_read_data));
     
-    while
-        (ptr_read
-            != InterlockedCompareExchange64
-                    (&pMpmcQueue->ptr_mpmc_rdptr,
-                        ptr_read->ptr_mpmc_next, ptr_read));
-    
+    InterlockedExchange64
+        (&pMpmcQueue->ptr_mpmc_rdptr,
+                ptr_read->ptr_mpmc_next);
     return
         ptr_read_data;
 }
@@ -62,7 +56,7 @@ bool
 
     do
     {
-        ptr_write
+        ptr_write 
             = pMpmcQueue->ptr_mpmc_wrptr;
         if(ptr_write->ptr_mpmc_next
                 == pMpmcQueue->ptr_mpmc_rdptr)
@@ -72,11 +66,9 @@ bool
         (InterlockedCompareExchange64
                 (&ptr_write->ptr_mpmc_data, pMpmcData, 0));
     
-    while
-        (ptr_write
-            != InterlockedCompareExchange64
-                    (&pMpmcQueue->ptr_mpmc_wrptr,
-                        ptr_write->ptr_mpmc_next, ptr_write));
+    InterlockedExchange64
+        (&pMpmcQueue->ptr_mpmc_wrptr,
+                ptr_write->ptr_mpmc_next);
 
     return true;
 }
