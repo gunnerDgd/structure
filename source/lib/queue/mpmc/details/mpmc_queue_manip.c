@@ -12,17 +12,33 @@ void*
 
     do
     {
+        // Retrieves Read Pointer of MPMC Circular Queue
         ptr_read 
             = pMpmcQueue->ptr_mpmc_rdptr;
+        // Retrieves Read Data from Read Pointer. This Might be NULL or Actual Data
         ptr_read_data
-            = ptr_read->ptr_mpmc_data;
+            = ptr_read->ptr_mpmc_data; 
         
-        if(ptr_read == pMpmcQueue->ptr_mpmc_wrptr)
-            return 0;
+        // If There's no data to read (read_pointer == write_pointer),
+        // routine exits with return value 0.
+        if(ptr_read_data == NULL
+                || ptr_read == pMpmcQueue->ptr_mpmc_wrptr)
+                        return 0;
     }
     while
         (!InterlockedCompareExchange64
             (&ptr_read->ptr_mpmc_data, 0, ptr_read_data));
+    /*CAS with Read Pointer's Data.
+     * Only one thread can success this operation.
+     *
+     * Read Data == 0 -> The Read Pointer is already read by other thread.
+     * Read Data != 0 -> Read - Available State.
+     * 
+     * CAS -> Change Read Pointer's Data Pointer to NULL,
+     * To Specify other thread cannot read data from this pointer.
+     * 
+     * If ptr_read_data == 0, cmpxchg intrinsic (InterlockedCompareExchange) will return NULL,
+     */ 
     
     InterlockedExchange64
         (&pMpmcQueue->ptr_mpmc_rdptr,
